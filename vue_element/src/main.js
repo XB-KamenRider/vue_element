@@ -3,8 +3,24 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
+/**
+ * 引入公用css
+ */
+import '@/assets/css/base.css'
 
 Vue.config.productionTip = false
+/**
+ * 在vue原型链上注册 axios
+ */
+Vue.prototype.http = axios;
+/**
+ * 注册域名
+ */
+Vue.prototype.baseUrl = '192.168.1.3:8080/';
 
 /* eslint-disable no-new */
 new Vue({
