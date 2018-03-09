@@ -43,7 +43,7 @@ export default {
       ins:'',
       inn: '对对对',
       list: []
-    }
+    } 
   },
   mounted () {
     setTimeout(()=>{
