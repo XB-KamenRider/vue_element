@@ -8,9 +8,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 /**
- * 引入公用css
+ * 引入公用scss
  */
-import '@/assets/css/base.css'
+import '@/assets/css/base.scss'
 
 Vue.config.productionTip = false
 /**

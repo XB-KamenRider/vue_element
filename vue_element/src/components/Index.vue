@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import VInput from '@/components/VInput';
-import VSelect from '@/components/VSelect';
-import VDialog from '@/components/VDialog';
-import VButton from '@/components/VButton';
+import VInput from '@/components/VInput/VInput';
+import VSelect from '@/components/VSelect/VSelect';
+import VDialog from '@/components/VDialog/VDialog';
+import VButton from '@/components/VButton/VButton';
 
 export default {
   name: 'Index',

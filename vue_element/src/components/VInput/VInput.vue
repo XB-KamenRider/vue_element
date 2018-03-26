@@ -15,6 +15,8 @@
   </div>
 </template>
 <script>
+import './VInput.scss'
+
 export default {
   name: 'VInput',
   data () {
@@ -75,30 +77,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  .vInputTemplate{
-    display: flex;
-    text-align: left;
-    align-items: center;
-    .vInputBox{
-      height: 2rem;
-      line-height: 2rem;
-      border: .0625rem solid #e4e7ed;
-      border-radius: .1875rem;
-      padding: 0 .75rem; 
-      .vInput{
-        border: 0;
-        width: 100%;
-        height: 1.6rem;
-        outline:medium;
-      }
-    }
-    .vInputLabel{
-      font-size: .75rem;
-      display: block;
-      height: 2rem;
-      line-height: 2rem;
-      margin-right: .5rem;
-      color: #666;
-    }
-  }
+  
 </style>

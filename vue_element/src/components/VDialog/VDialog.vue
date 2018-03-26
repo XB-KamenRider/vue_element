@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import './VDialog.scss'
 
 export default {
   name: 'VDialog',
@@ -81,52 +82,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .vDialogShade{
-      position: fixed;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.2);
-      z-index: 1994;
-    }
-    .vDialogWrapper{
-      position: relative;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: .125rem;
-      box-shadow: 0 .0625rem .1875rem rgba(0,0,0,.3);
-      box-sizing: border-box;
-      z-index: 1995;
-    }
-    .vDialogHeader{
-      height:3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 .625rem;
-      border-bottom: .0625rem solid #dfdfdf;
-      color: #666;
-    }
-    .vDialogContent{
-      padding: 1.25rem .625rem;
-    }
-    .vDialogFooter{
-      height: 4.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end; 
-      border-top: .0625rem solid #dfdfdf;
-      padding: 0 .625rem
-    }
-    .vIcon{
-      color: #666;
-      cursor: pointer;
-      &:hover{
-        color: #409eff;
-      }
-      i{
-        font-size: 1.25rem;
-      }
-    }
+    
 </style>
