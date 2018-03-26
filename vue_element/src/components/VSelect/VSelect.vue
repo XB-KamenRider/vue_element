@@ -41,8 +41,6 @@
   * newTime: 20180306
   */
 
-  import './VSelect.scss'
-
 export default {
   name: 'VSelect',
   data () {
@@ -207,5 +205,92 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  
+  @import './../../assets/css/staticvrariable.scss';
+  .vSelectTemplate{
+    display: flex;
+    align-items: center;
+    .vSelectBox{
+      height: 2rem;
+      line-height: 2rem;
+      border: .0625rem solid #e4e7ed;
+      border-radius: .1875rem;
+      padding: 0 .75rem; 
+      position: relative;
+      cursor: pointer;
+      .vSelect{
+        border: 0;
+        width: 100%;
+        outline:medium;
+        cursor: pointer;
+        height: 1.6rem;
+      }
+      .iconSelectArrows{
+        text-align: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 2rem;
+        height: 2rem;
+        color: #c0c4cc;
+        transform: rotate(0deg);
+        transition: transform 300ms ease-in-out;
+        i{
+          font-size: .875rem;
+        }
+      }
+      .iconSelectArrows.active{
+        transform: rotate(180deg);
+        transition: transform 300ms ease-in-out;
+      }
+    }
+    .vSelectLabel{
+      font-size: .75rem;
+      display: block;
+      height: 2rem;
+      line-height: 2rem;
+      margin-right: .5rem;
+      color: #666;
+    }
+    .vSelectNone{
+      display: none;
+    }
+    .vSelectListBox{
+      max-height: 0;
+      overflow-y: auto;
+      min-width: 100%;
+      position: absolute;
+      left: 0;
+      top: 2.1rem;
+      transition: max-height 200ms ease-in-out;
+      border-radius: 0 0 .25rem .25rem;
+      background-color: #fff;
+      box-shadow: 0 .125rem .75rem 0 rgba(0,0,0,.1);
+      box-sizing: border-box;
+    }
+    .vSelectListBox.active{
+      max-height: 10.5rem;
+      transition: max-height 200ms ease-in-out;
+    }
+    .vSelectList{
+      padding: .25rem 0; 
+      background-color: #fff;
+      box-shadow: 0 .125rem 0.75rem 0 rgba(0,0,0,.1);
+      li{
+        padding: 0 .75rem;
+        height: 2rem;
+        line-height: 2rem;
+        font-size: 12px;
+        cursor: pointer;
+        user-select:none;
+        text-align: left;
+      }
+      li.active{
+        background: #f5f7fa;
+        color: #409eff;
+      }
+      li:hover{
+        background: #f5f7fa;
+      }
+    }
+  }
 </style>
