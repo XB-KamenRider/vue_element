@@ -1,20 +1,26 @@
 <template>
-  <div class="vDialogShade" v-show="opendialog">
-    <div class="vDialogWrapper" ref="vDialog" :style="{ 'width':width, 'margin-top':top }">
-      <div class="vDialogHeader" v-if="isHeader">
-        <span>{{title}}</span>
-        <span class="vIcon" @click="closeDialogAction()">
-          <i class="vCloseDialog iconfont icon-web-icon-"></i>
-        </span>
+  <transition name="fadebox">
+    <div v-if="opendialog">
+      <div class="vDialogShade" @click="closeDialogAction()">
+      
       </div>
-      <div class="vDialogContent">
-        <slot name="content"></slot>
-      </div>
-      <div class="vDialogFooter" v-if="$slots.footer">
-        <slot name="footer"></slot>
+      <div class="vDialogWrapper" ref="vDialog" 
+        :style="{ 'width':width, 'top':top }">
+        <div class="vDialogHeader" v-if="isHeader">
+          <span>{{title}}</span>
+          <span class="vIcon" @click="closeDialogAction()">
+            <i class="vCloseDialog iconfont icon-web-icon-"></i>
+          </span>
+        </div>
+        <div class="vDialogContent">
+          <slot name="content"></slot>
+        </div>
+        <div class="vDialogFooter" v-if="$slots.footer">
+          <slot name="footer"></slot>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 <script>
 
@@ -52,8 +58,11 @@ export default {
       if (val) {
         this.closed = false;
         this.$nextTick(() => {
+          // 重启弹窗  使滚动条滚动到顶部
           this.$refs.vDialog.scrollTop = 0;
         });
+      }else{
+        
       }
     }
   },
@@ -75,7 +84,12 @@ export default {
       }
     },
   },
-  
+  errorHandler(err, vm, info){
+    console.log(err, vm, info)
+  },
+  arnHandler(msg, vm, trace) {
+    console.log(msg, vm, trace)
+  }
 }
 </script>
 
@@ -92,7 +106,9 @@ export default {
         z-index: 1994;
       }
       .vDialogWrapper{
-        position: relative;
+        position: fixed;
+        left: 0;
+        right: 0;
         margin: 0 auto;
         background: #fff;
         border-radius: .125rem;
@@ -129,5 +145,11 @@ export default {
         i{
           font-size: 1.25rem;
         }
+    } 
+    .fadebox-enter-active, .fadebox-leave-active {
+      transition: opacity .5s;
+    }
+    .fadebox-enter, .fadebox-leave-to {
+      opacity: 0;
     }
 </style>

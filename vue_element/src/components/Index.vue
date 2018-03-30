@@ -9,9 +9,9 @@
       <div slot="content">
         dddd
       </div>
-      <span slot="footer">
+      <!-- <span slot="footer">
         HHH
-      </span>
+      </span> -->
     </v-dialog>
     <div style="margin-top:30px">
       <v-button @click="getInputAction" :disabled=true type="primary">点击</v-button>
@@ -82,8 +82,7 @@ export default {
   },
   methods:{
     getInputAction(event){
-      console.log(1);
-      // this.openDialog = !this.openDialog;
+      this.openDialog = !this.openDialog;
     }
   }
 }
