@@ -2,24 +2,28 @@
   <div class="Index">
     <v-input v-model="inn" label="去去去我" label-location="left"></v-input>
     {{inn}}
-    <v-select v-model="ins" :selectList='list' label="所得到的" label-location="left" @input="getInputAction"></v-select>
-    当前选中的id{{ins}}
+    <!-- <v-select v-model="ins" :selectList='list' label="所得到的" label-location="left" @input="getInputAction"></v-select>
+    当前选中的id{{ins}} -->
     <v-dialog
       :opendialog.sync="openDialog">
       <div slot="content">
-        dddd
       </div>
+      <counter></counter>
       <!-- <span slot="footer">
         HHH
       </span> -->
     </v-dialog>
     <div style="margin-top:30px">
-      <v-button @click="getInputAction" :disabled=true type="primary">点击</v-button>
+      <!-- <v-button @click="getInputAction" :disabled=true type="primary">点击</v-button>
       <v-button @click="getInputAction" type="success">点击</v-button>
       <v-button @click="getInputAction" type="warning">点击</v-button>
       <v-button @click="getInputAction" type="danger">点击</v-button>
-      <v-button @click="getInputAction" :disabled=true >点击</v-button>
+      <v-button @click="getInputAction" :disabled=true >点击</v-button> -->
     </div>
+    <h3>{{$store.state.count}}</h3>
+
+    <button @click="$store.commit('add', 10)">+</button>
+    <button @click="reduce">-</button>
   </div>
 </template>
 
@@ -28,6 +32,8 @@ import VInput from '@/components/VInput/VInput';
 import VSelect from '@/components/VSelect/VSelect';
 import VDialog from '@/components/VDialog/VDialog';
 import VButton from '@/components/VButton/VButton';
+import store from '@/vuex/store'
+import { mapState,mapMutations } from 'vuex'
 
 export default {
   name: 'Index',
@@ -37,6 +43,7 @@ export default {
       'v-dialog': VDialog,
       'v-button': VButton
   },
+  store,
   data () {
     return {
       openDialog: false,
@@ -80,11 +87,14 @@ export default {
         }]
     },30)
   },
-  methods:{
-    getInputAction(event){
-      this.openDialog = !this.openDialog;
-    }
-  }
+  methods:mapMutations([
+      'add','reduce'
+  ]),
+  // methods:{
+  //   getInputAction(event){
+  //     this.openDialog = !this.openDialog;
+  //   }
+  // }
 }
 </script>
 
